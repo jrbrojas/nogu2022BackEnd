@@ -1,0 +1,234 @@
+[2022-04-22T08:01:19.058Z] | error | function buscarplacavahiculo(unknown, integer) does not exist
+[2022-04-22T08:02:48.615Z] | error | undefined
+[2022-04-22T08:03:22.257Z] | error | undefined
+[2022-04-22T08:03:38.137Z] | error | undefined
+[2022-04-22T08:04:12.112Z] | error | undefined
+[2022-04-22T08:05:04.883Z] | error | undefined
+[2022-04-22T08:05:05.199Z] | error | undefined
+[2022-04-22T08:05:11.662Z] | error | undefined
+[2022-04-22T08:06:32.795Z] | error | undefined
+[2022-04-22T08:07:25.209Z] | error | undefined
+[2022-04-22T08:07:54.021Z] | error | undefined
+[2022-04-22T08:08:22.323Z] | error | undefined
+[2022-04-22T08:08:45.969Z] | error | undefined
+[2022-04-22T08:09:45.089Z] | error | undefined
+[2022-04-22T08:13:10.270Z] | error | undefined
+[2022-04-22T08:17:35.590Z] | error | undefined
+[2022-04-22T08:18:07.472Z] | error | undefined
+[2022-04-22T08:20:25.498Z] | error | undefined
+[2022-04-22T08:21:13.344Z] | error | undefined
+[2022-04-22T08:22:52.884Z] | error | undefined
+[2022-04-22T08:24:51.333Z] | error | undefined
+[2022-04-22T08:25:49.653Z] | error | undefined
+[2022-04-22T08:27:24.335Z] | error | undefined
+[2022-04-22T08:31:11.594Z] | error | undefined
+[2022-04-22T08:51:54.980Z] | error | Cannot read property 'models' of undefined
+[2022-04-22T08:52:57.115Z] | error | Cannot read property 'models' of undefined
+[2022-04-22T08:53:39.292Z] | error | Unexpected token u in JSON at position 0
+[2022-04-22T08:54:06.809Z] | error | Unexpected token u in JSON at position 0
+[2022-04-22T08:55:38.948Z] | error | Cannot read property 'models' of undefined
+[2022-04-22T08:57:27.742Z] | error | Cannot read property 'models' of undefined
+[2022-04-22T08:59:54.801Z] | error | undefined
+[2022-04-22T08:59:54.935Z] | error | undefined
+[2022-04-22T08:59:57.914Z] | error | undefined
+[2022-04-22T08:59:58.360Z] | error | undefined
+[2022-04-22T09:01:02.386Z] | error | undefined
+[2022-04-22T09:01:32.874Z] | error | undefined
+[2022-04-22T09:01:37.903Z] | error | undefined
+[2022-04-22T09:02:38.903Z] | error | Cannot read property 'f_num_placa' of undefined
+[2022-04-22T09:02:40.393Z] | error | Cannot read property 'f_num_placa' of undefined
+[2022-04-22T09:03:55.833Z] | error | Cannot read property 'f_num_placa' of undefined
+[2022-04-22T09:03:57.050Z] | error | Cannot read property 'f_num_placa' of undefined
+[2022-04-22T09:03:58.046Z] | error | Cannot read property 'f_num_placa' of undefined
+[2022-04-22T09:04:01.558Z] | error | Cannot read property 'f_num_placa' of undefined
+[2022-04-22T09:06:20.905Z] | error | undefined
+[2022-04-22T09:06:22.166Z] | error | undefined
+[2022-04-22T09:08:14.798Z] | error | undefined
+[2022-04-22T09:12:57.363Z] | error | undefined
+[2022-04-22T09:12:57.451Z] | error | undefined
+[2022-04-22T09:12:59.855Z] | error | undefined
+[2022-04-22T09:13:00.228Z] | error | undefined
+[2022-04-22T09:13:05.753Z] | error | undefined
+[2022-04-22T09:13:36.707Z] | error | Unexpected token o in JSON at position 1
+[2022-04-22T09:13:58.179Z] | error | data is not defined
+[2022-04-22T09:15:00.493Z] | error | data is not defined
+[2022-04-22T09:15:16.727Z] | error | data is not defined
+[2022-04-22T09:15:46.289Z] | error | data is not defined
+[2022-04-22T09:26:21.133Z] | error | undefined
+[2022-04-22T09:26:21.267Z] | error | undefined
+[2022-04-22T09:26:25.042Z] | error | undefined
+[2022-04-22T09:39:50.915Z] | error | undefined
+[2022-04-22T09:39:51.073Z] | error | undefined
+[2022-04-22T09:39:54.069Z] | error | undefined
+[2022-04-22T09:39:54.183Z] | error | undefined
+[2022-04-22T09:39:57.200Z] | error | undefined
+[2022-04-22T09:42:35.014Z] | error | undefined
+[2022-04-22T09:44:06.523Z] | error | undefined
+[2022-04-22T09:46:02.834Z] | error | undefined
+[2022-04-22T09:48:40.036Z] | error | undefined
+[2022-04-22T09:49:33.950Z] | error | undefined
+[2022-04-22T09:54:24.013Z] | error | undefined
+[2022-04-22T10:17:37.630Z] | error | undefined
+[2022-04-22T10:18:55.823Z] | error | undefined
+[2022-04-22T10:19:03.202Z] | error | undefined
+[2022-04-22T10:19:34.548Z] | error | undefined
+[2022-04-22T10:19:48.582Z] | error | undefined
+[2022-04-22T10:22:08.976Z] | error | undefined
+[2022-04-22T10:23:16.828Z] | error | undefined
+[2022-04-22T10:25:49.685Z] | error | undefined
+[2022-04-22T10:25:49.806Z] | error | undefined
+[2022-04-22T10:28:23.009Z] | error | undefined
+[2022-04-22T10:28:23.122Z] | error | undefined
+[2022-04-22T10:28:26.753Z] | error | undefined
+[2022-04-22T10:28:26.974Z] | error | undefined
+[2022-04-22T10:29:05.195Z] | error | undefined
+[2022-04-22T10:29:05.299Z] | error | undefined
+[2022-04-22T10:29:42.694Z] | error | undefined
+[2022-04-22T10:29:42.777Z] | error | undefined
+[2022-04-22T10:32:04.370Z] | error | undefined
+[2022-04-22T10:32:04.482Z] | error | undefined
+[2022-04-22T10:32:10.473Z] | error | undefined
+[2022-04-22T10:32:10.581Z] | error | undefined
+[2022-04-22T10:32:18.870Z] | error | undefined
+[2022-04-22T10:32:18.968Z] | error | undefined
+[2022-04-22T10:32:48.994Z] | error | undefined
+[2022-04-22T10:32:59.763Z] | error | undefined
+[2022-04-22T10:33:28.027Z] | error | undefined
+[2022-04-22T10:33:39.489Z] | error | undefined
+[2022-04-22T10:34:09.818Z] | error | undefined
+[2022-04-22T10:34:18.247Z] | error | undefined
+[2022-04-22T10:34:28.095Z] | error | undefined
+[2022-04-22T10:34:36.781Z] | error | undefined
+[2022-04-22T10:34:47.336Z] | error | undefined
+[2022-04-22T15:13:53.882Z] | error | undefined
+[2022-04-22T15:13:54.029Z] | error | undefined
+[2022-04-22T15:13:55.800Z] | error | undefined
+[2022-04-22T15:13:56.522Z] | error | undefined
+[2022-04-22T15:13:59.228Z] | error | undefined
+[2022-04-22T15:27:14.926Z] | error | undefined
+[2022-04-22T15:27:15.101Z] | error | undefined
+[2022-04-22T15:27:16.223Z] | error | undefined
+[2022-04-22T15:27:16.698Z] | error | undefined
+[2022-04-22T15:27:20.553Z] | error | undefined
+[2022-04-22T15:27:30.123Z] | error | undefined
+[2022-04-22T15:27:34.030Z] | error | undefined
+[2022-04-22T15:27:37.561Z] | error | undefined
+[2022-04-22T15:38:45.740Z] | error | undefined
+[2022-04-22T15:38:45.861Z] | error | undefined
+[2022-04-22T15:38:47.120Z] | error | undefined
+[2022-04-22T15:38:47.564Z] | error | undefined
+[2022-04-22T15:38:50.719Z] | error | undefined
+[2022-04-22T15:39:22.147Z] | error | undefined
+[2022-04-22T15:39:25.656Z] | error | undefined
+[2022-04-22T15:44:12.970Z] | error | undefined
+[2022-04-22T15:44:13.090Z] | error | undefined
+[2022-04-22T15:49:12.643Z] | error | undefined
+[2022-04-22T15:49:26.886Z] | error | undefined
+[2022-04-22T15:49:41.295Z] | error | undefined
+[2022-04-22T15:49:55.490Z] | error | undefined
+[2022-04-22T15:51:22.936Z] | error | operator does not exist: integer = text
+[2022-04-22T15:55:36.580Z] | error | undefined
+[2022-04-22T15:59:00.973Z] | error | function isnull(integer, integer) does not exist
+[2022-04-22T15:59:36.931Z] | error | function isnull(integer, integer) does not exist
+[2022-04-22T16:00:56.339Z] | error | undefined
+[2022-04-22T16:01:04.671Z] | error | undefined
+[2022-04-22T16:09:44.466Z] | error | undefined
+[2022-04-22T16:14:31.092Z] | error | undefined
+[2022-04-22T16:14:40.699Z] | error | undefined
+[2022-04-22T16:15:33.285Z] | error | undefined
+[2022-04-22T16:19:52.109Z] | error | undefined
+[2022-04-22T16:20:10.024Z] | error | FOREACH expression must yield an array, not type text
+[2022-04-22T16:22:03.418Z] | error | undefined
+[2022-04-22T16:22:11.951Z] | error | undefined
+[2022-04-22T16:22:16.298Z] | error | undefined
+[2022-04-22T16:36:35.982Z] | error | undefined
+[2022-04-22T16:36:58.471Z] | error | undefined
+[2022-04-22T16:38:51.861Z] | error | undefined
+[2022-04-22T16:39:00.824Z] | error | undefined
+[2022-04-22T16:39:59.122Z] | error | undefined
+[2022-04-22T16:42:02.460Z] | error | undefined
+[2022-04-22T16:42:34.195Z] | error | undefined
+[2022-04-22T16:42:38.635Z] | error | undefined
+[2022-04-22T16:42:58.628Z] | error | undefined
+[2022-04-22T16:43:01.315Z] | error | syntax error at or near "kar"
+[2022-04-22T16:43:59.465Z] | error | syntax error at or near "kar"
+[2022-04-22T16:44:40.867Z] | error | syntax error at or near "kar"
+[2022-04-22T16:46:07.199Z] | error | undefined
+[2022-04-22T16:46:14.299Z] | error | undefined
+[2022-04-22T16:47:18.424Z] | error | undefined
+[2022-04-22T16:52:30.455Z] | error | undefined
+[2022-04-22T16:52:53.845Z] | error | undefined
+[2022-04-22T16:54:44.026Z] | error | undefined
+[2022-04-22T16:56:20.909Z] | error | undefined
+[2022-04-22T16:57:46.948Z] | error | undefined
+[2022-04-22T16:58:12.211Z] | error | undefined
+[2022-04-22T16:58:22.181Z] | error | undefined
+[2022-04-22T17:10:38.379Z] | error | undefined
+[2022-04-22T17:10:42.887Z] | error | undefined
+[2022-04-22T17:10:49.268Z] | error | missing FROM-clause entry for table "kar"
+[2022-04-22T17:11:03.645Z] | error | missing FROM-clause entry for table "kar"
+[2022-04-22T17:11:44.442Z] | error | column "undefined" does not exist
+[2022-04-22T17:12:29.002Z] | error | undefined
+[2022-04-22T17:12:42.023Z] | error | column "undefined" does not exist
+[2022-04-22T17:13:09.132Z] | error | undefined
+[2022-04-22T17:13:15.342Z] | error | column "undefined" does not exist
+[2022-04-22T17:13:40.808Z] | error | undefined
+[2022-04-22T17:14:04.665Z] | error | undefined
+[2022-04-22T17:30:49.485Z] | error | undefined
+[2022-04-22T17:32:25.923Z] | error | undefined
+[2022-04-22T17:35:36.612Z] | error | undefined
+[2022-04-22T17:36:42.737Z] | error | undefined
+[2022-04-22T17:37:47.605Z] | error | undefined
+[2022-04-22T17:45:50.781Z] | error | undefined
+[2022-04-22T17:45:59.982Z] | error | undefined
+[2022-04-22T17:46:42.077Z] | error | undefined
+[2022-04-22T17:47:26.631Z] | error | undefined
+[2022-04-22T17:48:51.539Z] | error | undefined
+[2022-04-22T17:59:29.309Z] | error | undefined
+[2022-04-22T18:03:47.875Z] | error | undefined
+[2022-04-22T18:04:20.029Z] | error | undefined
+[2022-04-22T18:04:59.873Z] | error | undefined
+[2022-04-22T18:06:07.723Z] | error | undefined
+[2022-04-22T18:06:39.246Z] | error | undefined
+[2022-04-22T18:09:33.421Z] | error | undefined
+[2022-04-22T18:10:06.360Z] | error | undefined
+[2022-04-22T18:10:54.793Z] | error | undefined
+[2022-04-22T18:13:15.389Z] | error | undefined
+[2022-04-22T18:17:12.477Z] | error | undefined
+[2022-04-22T18:19:51.215Z] | error | undefined
+[2022-04-22T18:20:08.759Z] | error | undefined
+[2022-04-22T18:21:27.094Z] | error | undefined
+[2022-04-22T18:22:35.563Z] | error | undefined
+[2022-04-22T18:23:24.703Z] | error | undefined
+[2022-04-22T18:23:59.829Z] | error | undefined
+[2022-04-22T18:24:59.687Z] | error | undefined
+[2022-04-22T18:32:32.060Z] | error | undefined
+[2022-04-22T18:36:06.602Z] | error | undefined
+[2022-04-22T18:36:45.555Z] | error | undefined
+[2022-04-22T18:37:48.525Z] | error | undefined
+[2022-04-22T18:38:41.619Z] | error | undefined
+[2022-04-22T18:39:15.201Z] | error | undefined
+[2022-04-22T18:39:19.759Z] | error | undefined
+[2022-04-22T18:41:33.852Z] | error | undefined
+[2022-04-22T18:41:43.569Z] | error | undefined
+[2022-04-22T18:42:34.428Z] | error | undefined
+[2022-04-22T18:42:55.302Z] | error | undefined
+[2022-04-22T18:46:33.490Z] | error | undefined
+[2022-04-22T18:48:16.211Z] | error | undefined
+[2022-04-22T18:52:18.782Z] | error | undefined
+[2022-04-22T18:57:48.177Z] | error | undefined
+[2022-04-22T19:01:40.280Z] | error | undefined
+[2022-04-22T20:04:18.048Z] | error | undefined
+[2022-04-23T00:06:46.255Z] | error | undefined
+[2022-04-23T00:12:43.263Z] | error | undefined
+[2022-04-23T00:33:53.007Z] | error | undefined
+[2022-04-23T00:40:27.192Z] | error | undefined
+[2022-04-23T00:40:41.684Z] | error | syntax error at or near "acb02d8060bf9ba0ed8cf5b5a2220417c4ff"
+[2022-04-23T00:41:45.840Z] | error | syntax error at or near "b3af5e45fd8af177147399428c81b1b062ade5"
+[2022-04-23T00:45:56.860Z] | error | syntax error at or near "f211582300c4685b3019519bdf1ff8563ae2436"
+[2022-04-23T00:48:12.946Z] | error | undefined
+[2022-04-23T00:50:20.119Z] | error | undefined
+[2022-04-23T00:56:04.865Z] | error | undefined
+[2022-04-23T01:02:27.264Z] | error | undefined
+[2022-04-23T01:06:57.439Z] | error | undefined
+[2022-04-23T01:07:30.562Z] | error | undefined
