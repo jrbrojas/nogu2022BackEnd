@@ -259,7 +259,7 @@ const postUpdateB = async (req, rest) => {
                                 var cont = await dataInsert.contribuyenteModuleArr.forEach(async element => {
                                     var q5 = (await sql.insert_contribuyentes(element, dataInsert.datosEntityModuleSend.numero_servicio)).toString();
                                     var query2 = "select * from insertContribuyentes(" + q5 + ")";
-                                    const respCon5 = await con.query(query2, async (err8, res) => {
+                                    const respCon5 = await con.query(query2, async (err8, resIC) => {
                                         if (err8) {
                                             logger.error(err8 + ' ||| ' + query2);
                                             logger.error(res);

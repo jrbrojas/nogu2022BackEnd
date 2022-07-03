@@ -185,7 +185,7 @@ exports.insert_contribuyentes = async (data, numero_servicio) => {
         "'" + data.profecion_ocupacion + "', " +
         "'" + data.telefono + "', " +
         "'" + data.inscripcion_registral + "', " +
-         "" + data.separa_patrimonio + ", " +
+         "" + (data.separa_patrimonio == null ? 0 : data.separa_patrimonio) + ", " +
          "'" + data.partida + "', " +
          "'" + data.sede + "', " +
          "'" + data.nombre_conyugue + "', " +
