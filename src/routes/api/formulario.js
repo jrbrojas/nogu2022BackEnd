@@ -11,7 +11,8 @@ const {
     postConsultaPlacaVahicular,
     postInsertKardex,
     postListarKardex,
-    postDescrgarKardex
+    postDescrgarKardex,
+    postDelete
 } = require("../../controllers/formularioController");
 
 router.get("/list", getList);
@@ -25,5 +26,6 @@ router.post("/consultaPlacaVahicular", postConsultaPlacaVahicular);
 router.post("/insertKardex", postInsertKardex);
 router.post("/listarKardex", postListarKardex);
 router.post("/descargarKardex", postDescrgarKardex);
+router.post("/Delete", postDelete);
 
 module.exports = router;

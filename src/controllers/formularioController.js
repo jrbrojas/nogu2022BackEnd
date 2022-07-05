@@ -459,6 +459,40 @@ const postDescrgarKardex = async (req, rest) => {
     }
 }
 
+const postDelete = async (req, rest) => {
+    try {
+        var data = req.body;
+        //if (data.models.tipo == 1) {
+        var arr = [];
+        arr.push({ "sql": "delete from public.numero_servicio where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.datos_bien where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.trasmite_opciones where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.datos_entidad where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.datos_entidad_uif where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.contribuyentes where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.datos_apoderado where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.datos_basicos where numero_servicio = " + data.models.numero_servicio });
+        arr.push({ "sql": "delete from public.datos_laborales where numero_servicio = " + data.models.numero_servicio });
+        var cont = await arr.forEach(async element => {
+            const respConNS = await con.query(element.sql, async (err, rest) => {
+                logger.error(err);
+            });
+        });
+        return rest.status(200).json({
+            data: [],
+            mensaje: "Eliminado correctamente",
+            statuscode: 200,
+        });
+    } catch (error) {
+        logger.error(error);
+        return rest.status(500).json({
+            data: [],
+            mensaje: "Error al desconocido",
+            statuscode: 500,
+        });
+    }
+};
+
 module.exports = {
     getList,
     postInsertA,
@@ -470,5 +504,6 @@ module.exports = {
     postConsultaPlacaVahicular,
     postInsertKardex,
     postListarKardex,
-    postDescrgarKardex
+    postDescrgarKardex,
+    postDelete
 };
