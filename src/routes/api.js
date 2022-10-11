@@ -25,7 +25,6 @@ apis.use(cors({
 const jwt = require("jsonwebtoken");
 
 apis.use(async (req, res, next) => {
-  //var nextApi = false;
   var nextApi = true;
   if (req.url.includes("/login") == true || req.url.includes("/mantenimiento/") == true) {
     nextApi = true;
