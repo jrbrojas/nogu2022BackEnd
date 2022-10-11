@@ -4,7 +4,7 @@
       "script"      : "./src/server.js",
       "instances": 2,
       "env": {
-        "PORT": "3001"
+        "PORT": "3000"
       }
     }]
   }

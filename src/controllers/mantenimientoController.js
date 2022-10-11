@@ -124,21 +124,25 @@ const postListRegistrosNaturalPDF = async (req, res) => {
             var select_trasmite_opciones = (await sql.select_trasmite_opciones(data.models.numero_servicio, data.models.tipoQuery)).toString();
             var resp = [];
             const respConNS = await con.query(select_datos_basicos, async (err, resp_basicos) => {
-                logger.error(err);
-                if (err)
-                    return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                const respConNS = await con.query(select_datos_apoderado, async (err, resp_apoderado) => {
+                if (err) {
                     logger.error(err);
-                    if (err)
-                        return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                    const respConNS = await con.query(select_datos_laborales, async (err, resp_laborales) => {
+                    return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                }
+                const respConNS = await con.query(select_datos_apoderado, async (err, resp_apoderado) => {
+                    if (err) {
                         logger.error(err);
-                        if (err)
-                            return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                        const respConNS = await con.query(select_trasmite_opciones, async (err, resp_opciones) => {
+                        return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                    }
+                    const respConNS = await con.query(select_datos_laborales, async (err, resp_laborales) => {
+                        if (err) {
                             logger.error(err);
-                            if (err)
+                            return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                        }
+                        const respConNS = await con.query(select_trasmite_opciones, async (err, resp_opciones) => {
+                            if (err) {
+                                logger.error(err);
                                 return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                            }
                             if (resp_opciones.rows.length > 0) {
                                 if (resp_opciones.rows[0].tipo_tramite == 2) {
                                   const respConNS = await con.query(select_bien, async (err, resp_bien) => {
@@ -235,120 +239,139 @@ const postListRegistrosJuridicaPDF = async (req, res) => {
 const postFilDocumento = async (req, res) => {
     try {
         var data = req.body.models;
-        if (data.tipo == 1) {
-            const respConNS = await con.query("select e.numero_servicio, upper(e.razonsocial) as entidad from public.datos_entidad e where e.ruc = '" + data.numeroDocumento + "' order by e.id desc limit 1", async (err, resp) => {
-                logger.error(err);
+        if (data.tipo_busqueda == 2) {
+            var select_datos_apoderado_apo = (await sql.select_datos_apoderado_fill(data.numeroDocumento, data.tipoQuery)).toString();
+            const respConNSPO = await con.query(select_datos_apoderado_apo, async (err, resp_apoderado_apo) => {
                 if (err) {
+                    logger.error(err);
                     return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
                 }
-                if (resp.rows.length > 0) {
-                    var numero_servicio = resp.rows[0]['numero_servicio'];
-                    var entidad = resp.rows[0]['entidad'];
-                    var select_datos_entidad = (await sql.select_datos_entidad(numero_servicio, data.tipoQuery)).toString();
-                    var select_datos_entidad_uif = (await sql.select_datos_entidad_uif(numero_servicio, data.tipoQuery)).toString();
-                    var select_contribuyentes = (await sql.select_contribuyentes(numero_servicio, data.tipoQuery)).toString();
-                    var select_trasmite_opciones = (await sql.select_trasmite_opciones(numero_servicio, data.tipoQuery)).toString();
-                    var select_bien = (await sql.select_bien(numero_servicio, data.tipoQuery)).toString();
-                    const respConNS = await con.query(select_datos_entidad, async (err, resp_datos_entidad) => {
+                var resp = ({
+                    resp_apoderado: resp_apoderado_apo.rows.length > 0 ? resp_apoderado_apo.rows[0] : null
+                });
+                return res.status(200).json({ data: resp, mensaje: "Se cargo último registro correctamente.|", statuscode: 200 });
+            });
+        } else {
+            if (data.tipo == 1) {
+                const respConNS = await con.query("select e.numero_servicio, upper(e.razonsocial) as entidad from public.datos_entidad e where e.ruc = '" + data.numeroDocumento + "' order by e.id desc limit 1", async (err, resp) => {
+                    if (err) {
                         logger.error(err);
-                        if (err)
-                            return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                        const respConNS = await con.query(select_datos_entidad_uif, async (err, resp_select_datos_entidad_uif) => {
+                        return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                    }
+                    if (resp.rows.length > 0) {
+                        var numero_servicio = resp.rows[0]['numero_servicio'];
+                        var entidad = resp.rows[0]['entidad'];
+                        var select_datos_entidad = (await sql.select_datos_entidad(numero_servicio, data.tipoQuery)).toString();
+                        var select_datos_entidad_uif = (await sql.select_datos_entidad_uif(numero_servicio, data.tipoQuery)).toString();
+                        var select_contribuyentes = (await sql.select_contribuyentes(numero_servicio, data.tipoQuery)).toString();
+                        var select_trasmite_opciones = (await sql.select_trasmite_opciones(numero_servicio, data.tipoQuery)).toString();
+                        var select_bien = (await sql.select_bien(numero_servicio, data.tipoQuery)).toString();
+                        const respConNS = await con.query(select_datos_entidad, async (err, resp_datos_entidad) => {
                             logger.error(err);
                             if (err)
                                 return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                            const respConNS = await con.query(select_trasmite_opciones, async (err, resp_select_trasmite_opciones) => {
+                            const respConNS = await con.query(select_datos_entidad_uif, async (err, resp_select_datos_entidad_uif) => {
                                 logger.error(err);
                                 if (err)
                                     return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                                const respConNS = await con.query(select_contribuyentes, async (err, resp_select_contribuyentes) => {
+                                const respConNS = await con.query(select_trasmite_opciones, async (err, resp_select_trasmite_opciones) => {
                                     logger.error(err);
                                     if (err)
                                         return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                                    if (resp_select_trasmite_opciones.rows.length > 0) {
-                                        if (resp_select_trasmite_opciones.rows[0].tipo_tramite == 2) {
-                                            const respConNS = await con.query(select_bien, async (err, resp_select_bien) => {
+                                    const respConNS = await con.query(select_contribuyentes, async (err, resp_select_contribuyentes) => {
+                                        logger.error(err);
+                                        if (err)
+                                            return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                                        if (resp_select_trasmite_opciones.rows.length > 0) {
+                                            if (resp_select_trasmite_opciones.rows[0].tipo_tramite == 2) {
+                                                const respConNS = await con.query(select_bien, async (err, resp_select_bien) => {
+                                                    var resp = ({
+                                                        resp_datos_entidad: resp_datos_entidad.rows.length > 0 ? resp_datos_entidad.rows[0] : null,
+                                                        resp_select_datos_entidad_uif: resp_select_datos_entidad_uif.rows.length > 0 ? resp_select_datos_entidad_uif.rows[0] : null,
+                                                        resp_select_trasmite_opciones: resp_select_trasmite_opciones.rows.length > 0 ? resp_select_trasmite_opciones.rows[0] : null,
+                                                        resp_select_bien: resp_select_bien.rows.length > 0 ? resp_select_bien.rows[0] : null,
+                                                        resp_select_contribuyentes: resp_select_contribuyentes.rows.length > 0 ? resp_select_contribuyentes.rows : null
+                                                    });
+                                                    return res.status(200).json({ data: resp, mensaje: "Se cargó último registro correctamente.|" + entidad, statuscode: 200 });
+                                                });
+                                            } else {
                                                 var resp = ({
                                                     resp_datos_entidad: resp_datos_entidad.rows.length > 0 ? resp_datos_entidad.rows[0] : null,
                                                     resp_select_datos_entidad_uif: resp_select_datos_entidad_uif.rows.length > 0 ? resp_select_datos_entidad_uif.rows[0] : null,
                                                     resp_select_trasmite_opciones: resp_select_trasmite_opciones.rows.length > 0 ? resp_select_trasmite_opciones.rows[0] : null,
-                                                    resp_select_bien: resp_select_bien.rows.length > 0 ? resp_select_bien.rows[0] : null,
+                                                    resp_select_bien: null,
                                                     resp_select_contribuyentes: resp_select_contribuyentes.rows.length > 0 ? resp_select_contribuyentes.rows : null
                                                 });
                                                 return res.status(200).json({ data: resp, mensaje: "Se cargó último registro correctamente.|" + entidad, statuscode: 200 });
-                                            });
+                                            }
                                         } else {
-                                            var resp = ({
-                                                resp_datos_entidad: resp_datos_entidad.rows.length > 0 ? resp_datos_entidad.rows[0] : null,
-                                                resp_select_datos_entidad_uif: resp_select_datos_entidad_uif.rows.length > 0 ? resp_select_datos_entidad_uif.rows[0] : null,
-                                                resp_select_trasmite_opciones: resp_select_trasmite_opciones.rows.length > 0 ? resp_select_trasmite_opciones.rows[0] : null,
-                                                resp_select_bien: null,
-                                                resp_select_contribuyentes: resp_select_contribuyentes.rows.length > 0 ? resp_select_contribuyentes.rows : null
-                                            });
-                                            return res.status(200).json({ data: resp, mensaje: "Se cargó último registro correctamente.|" + entidad, statuscode: 200 });
+                                            return res.status(200).json({ data: [], mensaje: "Error al leer datos", statuscode: 204 });
                                         }
-                                    } else {
-                                        return res.status(200).json({ data: [], mensaje: "Error al leer datos", statuscode: 204 });
-                                    }
-                                });
-                            });
-                        });
-                    });
-                } else {
-                    return res.status(200).json({ data: resp, mensaje: "No se encontrarón datos.|Mensaje al Usuario", statuscode: 202 });
-                }
-            });
-        } else {
-            const respConNS = await con.query("select b.numero_servicio, concat(upper(b.apellidos), ' ', upper(b.nombres)) as persona from public.datos_basicos b where b.num_documento = '" + data.numeroDocumento + "' order by b.id desc limit 1", async (err, resp) => {
-                logger.error(err);
-                if (err) {
-                    return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                }
-                if (resp.rows.length > 0) {
-                    var numero_servicio = resp.rows[0]['numero_servicio'];
-                    var persona = resp.rows[0]['persona'];
-                    var select_datos_basicos = (await sql.select_datos_basicos(numero_servicio, data.tipoQuery)).toString();
-                    var select_datos_apoderado = (await sql.select_datos_apoderado(numero_servicio, data.tipoQuery)).toString();
-                    var select_datos_laborales = (await sql.select_datos_laborales(numero_servicio, data.tipoQuery)).toString();
-                    var select_bien = (await sql.select_bien(numero_servicio, data.tipoQuery)).toString();
-                    var select_trasmite_opciones = (await sql.select_trasmite_opciones(numero_servicio, data.tipoQuery)).toString();
-                    const respConNS = await con.query(select_datos_basicos, async (err, resp_basicos) => {
-                        logger.error(err);
-                        if (err)
-                            return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                        const respConNS = await con.query(select_datos_apoderado, async (err, resp_apoderado) => {
-                            logger.error(err);
-                            if (err)
-                                return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                            const respConNS = await con.query(select_datos_laborales, async (err, resp_laborales) => {
-                                logger.error(err);
-                                if (err)
-                                    return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                                const respConNS = await con.query(select_trasmite_opciones, async (err, resp_opciones) => {
-                                    logger.error(err);
-                                    if (err)
-                                        return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                                    const respConNS = await con.query(select_bien, async (err, resp_bien) => {
-                                        logger.error(err);
-                                        if (err)
-                                            return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
-                                        var resp = ({
-                                            resp_basicos: resp_basicos.rows.length > 0 ? resp_basicos.rows[0] : null,
-                                            resp_apoderado: resp_apoderado.rows.length > 0 ? resp_apoderado.rows[0] : null,
-                                            resp_laborales: resp_laborales.rows.length > 0 ? resp_laborales.rows[0] : null,
-                                            resp_bien: resp_bien.rows.length > 0 ? resp_bien.rows[0] : null,
-                                            resp_opciones: resp_opciones.rows.length > 0 ? resp_opciones.rows[0] : null
-                                        });
-                                        return res.status(200).json({ data: resp, mensaje: "Se cargo último registro correctamente.|" + persona, statuscode: 200 });
                                     });
                                 });
                             });
                         });
-                    });
-                } else {
-                    return res.status(200).json({ data: resp, mensaje: "No se encontrarón datos.|Mensaje al Usuario", statuscode: 202 });
-                }
-            });
+                    } else {
+                        return res.status(200).json({ data: resp, mensaje: "No se encontrarón datos.|Mensaje al Usuario", statuscode: 202 });
+                    }
+                });
+            } else {
+                const respConNS = await con.query("select b.numero_servicio, concat(upper(b.apellidos), ' ', upper(b.nombres)) as persona from public.datos_basicos b where b.num_documento = '" + data.numeroDocumento + "' order by b.id desc limit 1", async (err, resp) => {
+                    if (err) {
+                        logger.error(err);
+                        return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                    }
+                    if (resp.rows.length > 0) {
+                        var numero_servicio = resp.rows[0]['numero_servicio'];
+                        var persona = resp.rows[0]['persona'];
+                        var select_datos_basicos = (await sql.select_datos_basicos(numero_servicio, data.tipoQuery)).toString();
+                        var select_datos_apoderado = (await sql.select_datos_apoderado(numero_servicio, data.tipoQuery)).toString();
+                        var select_datos_laborales = (await sql.select_datos_laborales(numero_servicio, data.tipoQuery)).toString();
+                        var select_bien = (await sql.select_bien(numero_servicio, data.tipoQuery)).toString();
+                        var select_trasmite_opciones = (await sql.select_trasmite_opciones(numero_servicio, data.tipoQuery)).toString();
+                        const respConNS = await con.query(select_datos_basicos, async (err, resp_basicos) => {
+                            if (err) {
+                                logger.error(err);
+                                return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                            }
+                            const respConNS = await con.query(select_datos_apoderado, async (err, resp_apoderado) => {
+                                if (err) {
+                                    logger.error(err);
+                                    return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                                }
+                                const respConNS = await con.query(select_datos_laborales, async (err, resp_laborales) => {
+                                    if (err) {
+                                        logger.error(err);
+                                        return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                                    }
+                                    const respConNS = await con.query(select_trasmite_opciones, async (err, resp_opciones) => {
+                                        if (err) {
+                                            logger.error(err);
+                                            return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                                        }
+                                        const respConNS = await con.query(select_bien, async (err, resp_bien) => {
+                                            if (err) {
+                                                logger.error(err);
+                                                return res.status(404).json({ data: [], mensaje: "No se pudo validar el documento.|Mensaje al Usuario", statuscode: 500 });
+                                            }
+                                            var resp = ({
+                                                resp_basicos: resp_basicos.rows.length > 0 ? resp_basicos.rows[0] : null,
+                                                resp_apoderado: resp_apoderado.rows.length > 0 ? resp_apoderado.rows[0] : null,
+                                                resp_laborales: resp_laborales.rows.length > 0 ? resp_laborales.rows[0] : null,
+                                                resp_bien: resp_bien.rows.length > 0 ? resp_bien.rows[0] : null,
+                                                resp_opciones: resp_opciones.rows.length > 0 ? resp_opciones.rows[0] : null
+                                            });
+                                            return res.status(200).json({ data: resp, mensaje: "Se cargo último registro correctamente.|" + persona, statuscode: 200 });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    } else {
+                        return res.status(200).json({ data: resp, mensaje: "No se encontrarón datos.|Mensaje al Usuario", statuscode: 202 });
+                    }
+                });
+            }
         }
     } catch (error) {
         return res.status(500).json({
